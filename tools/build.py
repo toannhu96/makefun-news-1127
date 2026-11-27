@@ -52,7 +52,7 @@ for k,(who,role,quote) in enumerate([
     bx=TX+k*(bw+24)
     R(bx,by0,bx+bw,by1,fill="#17335c"); R(bx,by0,bx+8,by1,fill="#f2c230")
     d.text(((bx+28)*S,(by0+12)*S),who,font=F(SANS,21),fill="#f2c230")
-    text(bx+28,by0+42,quote,F(SERIF,26),"#ffffff",bw-48,lh=1.2,box_bottom=by1-8)
+    text(bx+28,by0+42,quote,F(SERIF,29),"#ffffff",bw-48,lh=1.18,box_bottom=by1-8)
 
 # cards: a big figure anchors each story (type carries it, no icons)
 gap=20; cw=(W-2*M-gap)/2; top=B+gap; STRIP=62
@@ -66,9 +66,9 @@ cards=[
 for i,(big,k,col,hl,sub) in enumerate(cards):
     x0=M+(i%2)*(cw+gap); y0=top+(i//2)*(ch+gap); x1=x0+cw; y1=y0+ch
     R(x0,y0,x1,y1,fill="#ffffff",outline="#cfc8b8",w=2); R(x0,y0,x0+10,y1,fill=col)
-    d.text(((x0+30)*S,(y0+8)*S),big,font=F(SERIF,40),fill=col)
-    d.text(((x1-20)*S,(y0+30)*S),k,font=F(SANS,18),fill=col,anchor="ra")
-    yy=text(x0+30,y0+62,hl,F(SERIF,25),INK,cw-52,lh=1.15,box_bottom=y1-34)
+    d.text(((x0+30)*S,(y0+14)*S),big,font=F(SERIF,40),fill=col)
+    d.text(((x1-20)*S,(y0+36)*S),k,font=F(SANS,18),fill=col,anchor="ra")
+    yy=text(x0+30,y0+68,hl,F(SERIF,25),INK,cw-52,lh=1.15,box_bottom=y1-34)
     text(x0+30,yy+4,sub,F(SANSR,20),"#333",cw-52,lh=1.2,box_bottom=y1-6)
 sy=H-M-STRIP
 R(M,sy,W-M,H-M,fill=INK)
