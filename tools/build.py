@@ -42,27 +42,27 @@ TX = M+28; TW = 548
 R(TX,T+26,TX+150,T+56,fill="#d62828")
 d.text(((TX+75)*S,(T+41)*S),"TOP STORY",font=F(SANS,18),fill="#fff",anchor="mm")
 R(TX+162,T+26,TX+162+262,T+56,fill="#f2c230")
-d.text(((TX+162+131)*S,(T+41)*S),"CLAIM \u00b7 NOT CONFIRMED",font=F(SANS,18),fill="#0f2542",anchor="mm")
-yh=text(TX,T+76,"Trump says Putin is ready for a deal to end Ukraine war",F(SERIF,48),"#ffffff",TW,lh=1.15,box_bottom=B-130)
+d.text(((TX+162+131)*S,(T+41)*S),"ACCORDING TO TRUMP",font=F(SANS,18),fill="#0f2542",anchor="mm")
+yh=text(TX,T+76,"Trump says Putin is open to a Ukraine deal",F(SERIF,48),"#ffffff",TW,lh=1.15,box_bottom=B-130)
 R(TX,yh+14,TX+TW,yh+16,fill="#f2c230")
-text(TX,yh+30,"This is Trump\u2019s own statement. The sources checked show no response from Putin or the Kremlin, so treat it as a claim, not a fact.",F(SANSR,22),"#d6e0f0",TW,lh=1.25,box_bottom=B-12)
+text(TX,yh+30,"Trump says he asked Putin to \u201cpull back\u201d military aggression across Europe. Kyiv warns Russia is readying a new mass strike.",F(SANSR,22),"#d6e0f0",TW,lh=1.25,box_bottom=B-12)
 # right column: the quoted words, attributed (information, not decoration)
 qx0,qx1 = 660, W-M-28
 R(qx0,T+34,qx1,B-34,fill="#17335c")
 R(qx0,T+34,qx0+8,B-34,fill="#f2c230")
-d.text(((qx0+30)*S,(T+40)*S),"\u201c",font=F(SERIF,90),fill="#f2c230")
-text(qx0+30,T+130,"Putin would like to make a deal.",F(SERIF,30),"#ffffff",qx1-qx0-52,lh=1.2,box_bottom=B-110)
-d.text(((qx0+30)*S,(B-92)*S),"DONALD TRUMP",font=F(SANS,19),fill="#f2c230")
-d.text(((qx0+30)*S,(B-66)*S),"US PRESIDENT \u00b7 STATEMENT",font=F(SANSR,16),fill="#cfd9ea")
+d.text(((qx0+30)*S,(T+52)*S),"KYIV WARNS",font=F(SANS,22),fill="#f2c230")
+text(qx0+30,T+130,"Russia is preparing a new mass strike in the coming days.",F(SERIF,30),"#ffffff",qx1-qx0-52,lh=1.2,box_bottom=B-110)
+d.text(((qx0+30)*S,(B-92)*S),"VOLODYMYR ZELENSKY",font=F(SANS,19),fill="#f2c230")
+d.text(((qx0+30)*S,(B-66)*S),"PRESIDENT OF UKRAINE",font=F(SANSR,16),fill="#cfd9ea")
 
 # cards (no icons: type carries the story)
 gap=20; cw=(W-2*M-gap)/2; top=B+gap; STRIP=62
 ch=(H-M-STRIP-gap-top-gap)/2
 cards=[
- ("EUROPE","#1b6e5a","EU leaders back Hernández de Cos as next ECB chief","Per the European Council. He would succeed Christine Lagarde, who leaves on 7 February."),
- ("UNITED STATES","#a84a12","Thanksgiving storm cuts power and grounds flights","Heavy rain and wind swept from west to east on the holiday."),
- ("US POLITICS","#6a3d9a","Trump: US growth \u201cdeliberately\u201d understated","He ties a data revision to the 2026 midterms; no evidence cited here."),
- ("KOREA","#8a1c2b","Kim vows more nuclear arms after rebuffing Trump","Pyongyang ignored Washington\u2019s overture."),
+ ("UNITED STATES","#a84a12","Thanksgiving storm cuts power, disrupts flights","Gusts up to 70 mph hit the East Coast; hundreds of thousands lost power."),
+ ("EUROPE","#1b6e5a","EU leaders wrestle over \u20ac1.6tn budget","The 2028\u201334 plan and Ukraine funding were debated at Thursday\u2019s summit."),
+ ("TRADE","#6a3d9a","US tariff push targets 14 trading partners","Includes China, days after Xi\u2019s red-carpet welcome for Trump."),
+ ("KOREA","#8a1c2b","North Korea pauses military aid to Russia","Per Ukrainian intelligence; a reported dispute over Moscow\u2019s remarks."),
 ]
 for i,(k,col,hl,sub) in enumerate(cards):
     x0=M+(i%2)*(cw+gap); y0=top+(i//2)*(ch+gap); x1=x0+cw; y1=y0+ch
@@ -73,7 +73,7 @@ for i,(k,col,hl,sub) in enumerate(cards):
 sy=H-M-STRIP
 R(M,sy,W-M,H-M,fill=INK)
 d.text(((M+22)*S,(sy+STRIP/2)*S),"ALSO",font=F(SANS,18),fill="#f2c230",anchor="lm")
-for j,t in enumerate(["South Africa: Ramaphosa court bid over impeachment report","Bangkok: oil facility explosion injures nine"]):
+for j,t in enumerate(["Bank of England to cut capital rules for UK-focused banks","Lithuania threatens Taiwan office status to mend China ties"]):
     assert d.textlength(t,font=F(SANS,19))<=(W-2*M-92-20)*S
     d.text(((M+92)*S,(sy+8+j*24)*S),t,font=F(SANS,19),fill="#ffffff")
 
