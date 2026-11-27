@@ -35,41 +35,41 @@ text(M, 34, "THE WORLD IN ONE DAY", F(SERIF,34), INK, 600)
 d.text((W*S-M*S, 40*S), "FRIDAY 27 NOVEMBER 2026", font=F(SANS,19), fill="#7a1f1f", anchor="ra")
 R(M,84,W-M,87,fill=INK)
 
-# dominant panel
+# dominant panel: headline across the full width, then two attributed statements side by side
 T,B = 100,520
 R(M,T,W-M,B,fill="#0f2542")
-TX = M+28; TW = 548
-R(TX,T+26,TX+150,T+56,fill="#d62828")
-d.text(((TX+75)*S,(T+41)*S),"TOP STORY",font=F(SANS,18),fill="#fff",anchor="mm")
-R(TX+162,T+26,TX+162+262,T+56,fill="#f2c230")
-d.text(((TX+162+131)*S,(T+41)*S),"ACCORDING TO TRUMP",font=F(SANS,18),fill="#0f2542",anchor="mm")
-yh=text(TX,T+76,"Trump says Putin is open to a Ukraine deal",F(SERIF,48),"#ffffff",TW,lh=1.15,box_bottom=B-130)
-R(TX,yh+14,TX+TW,yh+16,fill="#f2c230")
-text(TX,yh+30,"Trump says he asked Putin to \u201cpull back\u201d military aggression across Europe. Kyiv warns Russia is readying a new mass strike.",F(SANSR,22),"#d6e0f0",TW,lh=1.25,box_bottom=B-12)
-# right column: the quoted words, attributed (information, not decoration)
-qx0,qx1 = 660, W-M-28
-R(qx0,T+34,qx1,B-34,fill="#17335c")
-R(qx0,T+34,qx0+8,B-34,fill="#f2c230")
-d.text(((qx0+30)*S,(T+52)*S),"KYIV WARNS",font=F(SANS,22),fill="#f2c230")
-text(qx0+30,T+130,"Russia is preparing a new mass strike in the coming days.",F(SERIF,30),"#ffffff",qx1-qx0-52,lh=1.2,box_bottom=B-110)
-d.text(((qx0+30)*S,(B-92)*S),"VOLODYMYR ZELENSKY",font=F(SANS,19),fill="#f2c230")
-d.text(((qx0+30)*S,(B-66)*S),"PRESIDENT OF UKRAINE",font=F(SANSR,16),fill="#cfd9ea")
+TX = M+28; FW = W-2*M-56
+R(TX,T+24,TX+150,T+54,fill="#d62828")
+d.text(((TX+75)*S,(T+39)*S),"TOP STORY",font=F(SANS,18),fill="#fff",anchor="mm")
+R(TX+162,T+24,TX+162+262,T+54,fill="#f2c230")
+d.text(((TX+162+131)*S,(T+39)*S),"ACCORDING TO TRUMP",font=F(SANS,18),fill="#0f2542",anchor="mm")
+yh=text(TX,T+68,"Trump says Putin is open to a Ukraine deal",F(SERIF,46),"#ffffff",FW,lh=1.12,box_bottom=T+190)
+R(TX,yh+10,TX+FW,yh+12,fill="#f2c230")
+bw=(FW-24)/2; by0=yh+28; by1=B-28
+for k,(who,role,quote) in enumerate([
+  ("TRUMP SAYS","US PRESIDENT","Putin is ready for a deal. He urged Russia to \u201cpull back\u201d in Europe."),
+  ("ZELENSKY SAYS","PRESIDENT OF UKRAINE","Russia is preparing a new mass strike in the coming days.")]):
+    bx=TX+k*(bw+24)
+    R(bx,by0,bx+bw,by1,fill="#17335c"); R(bx,by0,bx+8,by1,fill="#f2c230")
+    d.text(((bx+28)*S,(by0+12)*S),who,font=F(SANS,21),fill="#f2c230")
+    text(bx+28,by0+42,quote,F(SERIF,26),"#ffffff",bw-48,lh=1.2,box_bottom=by1-8)
 
-# cards (no icons: type carries the story)
+# cards: a big figure anchors each story (type carries it, no icons)
 gap=20; cw=(W-2*M-gap)/2; top=B+gap; STRIP=62
 ch=(H-M-STRIP-gap-top-gap)/2
 cards=[
- ("UNITED STATES","#a84a12","Thanksgiving storm cuts power, disrupts flights","Gusts up to 70 mph hit the East Coast; hundreds of thousands lost power."),
- ("EUROPE","#1b6e5a","EU leaders wrestle over \u20ac1.6tn budget","The 2028\u201334 plan and Ukraine funding were debated at Thursday\u2019s summit."),
- ("TRADE","#6a3d9a","US tariff push targets 14 trading partners","Includes China, days after Xi\u2019s red-carpet welcome for Trump."),
- ("KOREA","#8a1c2b","North Korea pauses military aid to Russia","Per Ukrainian intelligence; a reported dispute over Moscow\u2019s remarks."),
+ ("70 mph","UNITED STATES","#a84a12","Thanksgiving storm cuts power, grounds flights","Hundreds of thousands lost power."),
+ ("\u20ac1.6tn","EUROPE","#1b6e5a","EU leaders wrestle over 2028\u201334 budget","Ukraine funding was also on the table."),
+ ("14","TRADE","#6a3d9a","US tariff push targets 14 trading partners","China is among them."),
+ ("PAUSED","KOREA","#8a1c2b","North Korea halts military aid to Russia","Per Ukrainian intelligence."),
 ]
-for i,(k,col,hl,sub) in enumerate(cards):
+for i,(big,k,col,hl,sub) in enumerate(cards):
     x0=M+(i%2)*(cw+gap); y0=top+(i//2)*(ch+gap); x1=x0+cw; y1=y0+ch
     R(x0,y0,x1,y1,fill="#ffffff",outline="#cfc8b8",w=2); R(x0,y0,x0+10,y1,fill=col)
-    d.text(((x0+30)*S,(y0+12)*S),k,font=F(SANS,16),fill=col)
-    yy=text(x0+30,y0+34,hl,F(SERIF,26),INK,cw-52,lh=1.15,box_bottom=y1-50)
-    text(x0+30,yy+6,sub,F(SANSR,18),"#333",cw-52,lh=1.2,box_bottom=y1-6)
+    d.text(((x0+30)*S,(y0+8)*S),big,font=F(SERIF,40),fill=col)
+    d.text(((x1-20)*S,(y0+30)*S),k,font=F(SANS,18),fill=col,anchor="ra")
+    yy=text(x0+30,y0+62,hl,F(SERIF,25),INK,cw-52,lh=1.15,box_bottom=y1-34)
+    text(x0+30,yy+4,sub,F(SANSR,20),"#333",cw-52,lh=1.2,box_bottom=y1-6)
 sy=H-M-STRIP
 R(M,sy,W-M,H-M,fill=INK)
 d.text(((M+22)*S,(sy+STRIP/2)*S),"ALSO",font=F(SANS,18),fill="#f2c230",anchor="lm")
