@@ -21,12 +21,14 @@ overflow or wash out fails the build instead of shipping.
 
 ## What the page says
 
-The lead is labelled `ACCORDING TO TRUMP`: his statement that Putin is open to a
-Ukraine deal, set beside Zelensky's warning of a new Russian mass strike. Cards:
-the Thanksgiving storm, the EU budget summit, US tariffs on 14 partners, and North
-Korea pausing military aid to Russia (per Ukrainian intelligence). A ticker adds
-the Bank of England and Lithuania items. Sources: Reuters items as carried by The
-Standard (HK) morning recap and SBS News, 27 Nov 2026.
+The lead is labelled `STATEMENTS · UNVERIFIED`: Trump's statement that Putin is
+ready for a deal and Zelensky's warning of a new Russian mass strike, each shown
+as an attributed box with a footnote that neither is independently confirmed.
+Cards: the Thanksgiving storm (70 mph), the EU budget summit (EUR 1.6tn), US
+tariffs on 14 partners, and an ALLEGED North Korean pause in aid to Russia (a
+claim by Ukrainian intelligence). A ticker adds the Bank of England and Lithuania
+items. Sources: Reuters items as carried by The Standard (HK) morning recap and
+SBS News, 27 Nov 2026.
 
 ---
 

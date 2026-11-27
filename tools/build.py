@@ -41,18 +41,21 @@ R(M,T,W-M,B,fill="#0f2542")
 TX = M+28; FW = W-2*M-56
 R(TX,T+24,TX+150,T+54,fill="#d62828")
 d.text(((TX+75)*S,(T+39)*S),"TOP STORY",font=F(SANS,18),fill="#fff",anchor="mm")
-R(TX+162,T+24,TX+162+262,T+54,fill="#f2c230")
-d.text(((TX+162+131)*S,(T+39)*S),"ACCORDING TO TRUMP",font=F(SANS,18),fill="#0f2542",anchor="mm")
-yh=text(TX,T+68,"Trump says Putin is open to a Ukraine deal",F(SERIF,46),"#ffffff",FW,lh=1.12,box_bottom=T+190)
+CHIP="STATEMENTS \u00b7 UNVERIFIED"; cwid=d.textlength(CHIP,font=F(SANS,18))/S+36
+R(TX+162,T+24,TX+162+cwid,T+54,fill="#f2c230")
+d.text(((TX+162+cwid/2)*S,(T+39)*S),CHIP,font=F(SANS,18),fill="#0f2542",anchor="mm")
+yh=text(TX,T+68,"Ukraine war: Trump talks deal, Kyiv warns of new strike",F(SERIF,46),"#ffffff",FW,lh=1.12,box_bottom=T+190)
 R(TX,yh+10,TX+FW,yh+12,fill="#f2c230")
-bw=(FW-24)/2; by0=yh+28; by1=B-28
+bw=(FW-24)/2; by0=yh+28; by1=B-56
 for k,(who,role,quote) in enumerate([
-  ("TRUMP SAYS","US PRESIDENT","Putin is ready for a deal. He urged Russia to \u201cpull back\u201d in Europe."),
+  ("TRUMP SAYS","US PRESIDENT","Putin is ready for a deal; he urged Russia to \u201cpull back\u201d in Europe."),
   ("ZELENSKY SAYS","PRESIDENT OF UKRAINE","Russia is preparing a new mass strike in the coming days.")]):
     bx=TX+k*(bw+24)
     R(bx,by0,bx+bw,by1,fill="#17335c"); R(bx,by0,bx+8,by1,fill="#f2c230")
     d.text(((bx+28)*S,(by0+12)*S),who,font=F(SANS,21),fill="#f2c230")
-    text(bx+28,by0+42,quote,F(SERIF,29),"#ffffff",bw-48,lh=1.18,box_bottom=by1-8)
+    text(bx+28,by0+42,quote,F(SERIF,27),"#ffffff",bw-48,lh=1.15,box_bottom=by1-8)
+
+d.text((TX*S,(B-34)*S),"Both are claims by the parties involved; neither is independently confirmed here.",font=F(SANSR,17),fill="#d6e0f0")
 
 # cards: a big figure anchors each story (type carries it, no icons)
 gap=20; cw=(W-2*M-gap)/2; top=B+gap; STRIP=62
@@ -60,8 +63,8 @@ ch=(H-M-STRIP-gap-top-gap)/2
 cards=[
  ("70 mph","UNITED STATES","#a84a12","Thanksgiving storm cuts power, grounds flights","Hundreds of thousands lost power."),
  ("\u20ac1.6tn","EUROPE","#1b6e5a","EU leaders wrestle over 2028\u201334 budget","Ukraine funding was also on the table."),
- ("14","TRADE","#6a3d9a","US tariff push targets 14 trading partners","China is among them."),
- ("PAUSED","KOREA","#8a1c2b","North Korea halts military aid to Russia","Per Ukrainian intelligence."),
+ ("14","TRADE","#6a3d9a","US tariff push targets 14 trading partners","Reported this week; China is among them."),
+ ("ALLEGED","KOREA","#8a1c2b","North Korea said to pause military aid to Russia","Claim by Ukrainian intelligence; unconfirmed."),
 ]
 for i,(big,k,col,hl,sub) in enumerate(cards):
     x0=M+(i%2)*(cw+gap); y0=top+(i//2)*(ch+gap); x1=x0+cw; y1=y0+ch
